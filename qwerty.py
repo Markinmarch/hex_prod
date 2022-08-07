@@ -85,7 +85,7 @@ class VK_API:
     
 # вводим свой токен и id пользователя страницы
 access_token = 'vk1.a.EDgakxBbcab3YsfNh1PCTGD5nXvM1O5zGqH8FC5oLH8SkAc1o54qXZczueHJQdNHScD80HO5vMPCsgP0IoAlUN5hb5N6STIGHwhhxrd86nMJXgPN5KgF5V-HSTTuUDa9Oel5vw4tScZBSkYw7lVbD15Ul1Gq996M4AXe_NZ8PZ8ABbsAtKi-zt5OY2K8IuAr'
-user_id = 501244677
+user_id = 43248960
 
 
 res_VK_data = VK_API(user_id, access_token)
@@ -146,31 +146,28 @@ class YaDisck:
         # запрос для создания папки на Я.Диске для фотографий
         create_url = 'https://cloud-api.yandex.net/v1/disk/resources?path=%2Fphoto_from_vk'
         # запрос для создания папки по имени и фамилии профиля
-        create_folder_profile_url = f'https://cloud-api.yandex.net/v1/disk/resources?path=%3A%2Fphoto_from_vk%3A%2F{self.name}_{self.last_name}'
+        create_folder_profile_url = f'https://cloud-api.yandex.net/v1/disk/resources?path=%2Fphoto_from_vk%2F{self.name}_{self.last_name}'
         headers = {'Content-Type': 'application/json',
                    'Accept': 'application/json',
                    'Authorization': f'OAuth {self.token}'}
         response_create_url = requests.put(create_url, headers=headers)
         response_create_url.raise_for_status()
-        return response_create_url.status_code
-
-        # raise_for_status(response_create_url)
-        # if response_create_url.status_code == 201:
-        #     response_create_folder_profile_url = requests.put(create_folder_profile_url, headers=headers).json()
-        #     response.raise_for_status(response_create_folder_profile_url)
-        #     if response_create_folder_profile_url.status_code == 201:
-        #         return 'Успешно!'
-        #     else:
-        #         return f'Ошибка! Код ошибки: {response_create_folder_profile_url}'
-        # elif response_create_url.status_code == 409:
-        #     response_create_folder_profile_url = requests.put(create_folder_profile_url, headers=headers).json()
-        #     response.raise_for_status(response_create_folder_profile_url)
-        #     if response_create_folder_profile_url.status_code == 201:
-        #         return 'Успешно!'
-        #     else:
-        #         return f'Ошибка! Код ошибки: {response_create_folder_profile_url.status_code}'
-        # else:
-        #     return f'Ошибка! Код ошибки: {response_create_url.status_code}'
+        if response_create_url.status_code == 201:
+            response_create_folder_profile_url = requests.put(create_folder_profile_url, headers=headers)
+            response_create_folder_profile_url.raise_for_status()
+            # if response_create_folder_profile_url.status_code == 201:
+            #     return 'Успешно!'
+            # else:
+            #     return f'Ошибка! Код ошибки: {response_create_folder_profile_url.status_code}'
+        elif response_create_url.status_code == 409:
+            response_create_folder_profile_url = requests.put(create_folder_profile_url, headers=headers)
+            response_create_folder_profile_url.raise_for_status()
+            # if response_create_folder_profile_url.status_code == 201:
+            #     return 'Успешно!'
+            # else:
+            #     return f'Ошибка! Код ошибки: {response_create_folder_profile_url.status_code}'
+        else:
+            return f'Ошибка! Код ошибки: {response_create_url.status_code}'
         
     # def uploader(self, path):
     #     upload_url = ''
