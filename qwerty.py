@@ -180,7 +180,7 @@ class YaDisck:
         
         
 
-ya_token = ''
+ya_token = 'AQAAAAA6JGSpAADLW9-3KotoUvEhl8HN9VNgOg'
 name_user = user_data.get('first_name')
 
 last_name_user = user_data.get('last_name')
