@@ -104,28 +104,20 @@ user_data = res_VK_data.users_info()[0]
 name_user = user_data.get('first_name')
 last_name_user = user_data.get('last_name')
 
-class json_file():
-    '''Метод для формирования информации по файлу в json-формате'''
-    
-    def __init__(self, likes_and_date, url_and_type_size):
-        # указываем два параметра: количество лайков c датой, ссылки и типоразмер
-        self.file_name = likes_and_date
-        self.url_type = url_and_type_size
 
-    def get_create_json(self):
-        # соединяем в единый список количество лайков по дате и типоразмер
-        ready_lst = []
-        size_lst = [size for url, size in self.url_type]
-        lst = [[x, y] for x, y in (list(zip(self.file_name, size_lst)))]
-        for item in lst:
-            json_dict = {'file_name': item[0],
-                         'size': item[1]}
-            ready_lst.append(json_dict)
-        with open(rf'JSON/{name_user}_{last_name_user}.json', 'w') as write_file:
-            return json.dump(ready_lst, write_file)
+def get_create_json(date, links):
+    # соединяем в единый список количество лайков по дате и типоразмер
+    ready_lst = []
+    size_lst = [size for url, size in links]
+    lst = [[x, y] for x, y in (list(zip(date, size_lst)))]
+    for item in lst:
+        json_dict = {'file_name': item[0],
+                     'size': item[1]}
+        ready_lst.append(json_dict)
+    with open(rf'JSON/{name_user}_{last_name_user}.json', 'w') as write_file:
+        return json.dump(ready_lst, write_file)
 
-res_json_data = json_file(date, links)
-res_json_name = res_json_data.get_create_json()
+json_file = get_create_json(date, links)
 
 
 class YaDisck:
@@ -135,7 +127,7 @@ class YaDisck:
         self.id = user_id
         self.name = name
         self.last_name = last_name
-        self.file_name = file_name
+        date = file_name
         self.headers = {'Content-Type': 'application/json',
                    'Authorization': f'OAuth {self.token}'}
     
