@@ -16,7 +16,7 @@ class VK:
         return response.json()
 
 
-access_token = 'vk1.a.EDgakxBbcab3YsfNh1PCTGD5nXvM1O5zGqH8FC5oLH8SkAc1o54qXZczueHJQdNHScD80HO5vMPCsgP0IoAlUN5hb5N6STIGHwhhxrd86nMJXgPN5KgF5V-HSTTuUDa9Oel5vw4tScZBSkYw7lVbD15Ul1Gq996M4AXe_NZ8PZ8ABbsAtKi-zt5OY2K8IuAr'
-user_id = 43248960
+access_token = ''
+user_id = ''
 vk = VK(access_token, user_id)
 print(vk.users_info())

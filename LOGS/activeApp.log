@@ -1,0 +1,4 @@
+2022-08-22 14:54:20,306 Ссылки      INFO     Id: markinmarch     User: Марк Изотов Информация корректна
+2022-08-22 14:54:20,306 Ссылки      DEBUG    Id: markinmarch     User: Марк Изотов ['https://sun9-east.userapi.com/sun9-29/s/v1/ig2/sKJB38RouFuU6WDKz9DxD0o5PWpsxZyS8cvjnCcoiun3YRIEQv-gpS9IGfvd0qZFmp_Gdx6t_qlHlwBvhzbLJCpe.jpg?size=828x828&quality=95&type=album', 'https://sun9-west.userapi.com/sun9-62/s/v1/if1/VMYer0v09UjQrDBgFGh0hgKgY-ECuV_FVc1ZzK7CRBYRz1AYNPFy7elZ2hWGewdimPoNI4-u.jpg?size=436x436&quality=96&type=album']
+2022-08-22 14:54:20,306 Подлинность INFO     Id: markinmarch     User: Марк Изотов Информация доступна
+2022-08-22 14:54:20,307 Подлинность DEBUG    Id: markinmarch     User: Марк Изотов {'response': [{'id': 501244677, 'first_name': 'Марк', 'last_name': 'Изотов', 'can_access_closed': True, 'is_closed': False}]}
